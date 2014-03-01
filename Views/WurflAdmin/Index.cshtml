@@ -1,0 +1,88 @@
+@model Orchard.Mobile.Contrib.ViewModels.WurflIndexViewModel
+@{
+    Style.Require("MobileContribAdmin");
+    Script.Require("jQuery");
+
+    Layout.Title = T("Wurfl Management").ToString();
+}
+
+<div class="topLinks">
+    <p>@Html.ActionLink(T("Wurfl Logging").ToString(), "ViewLogs") | @Html.ActionLink(T("User Agent Capabilities Search").ToString(), "UserAgentSearch")</p>
+</div>
+<div class="clearBoth"></div>
+
+<p><strong>NOTE: These Wurfl management functions are not yet completed.</strong></p>
+
+@using (Html.BeginFormAntiForgeryPost()) {
+    <h2>@T("Automatic Update")</h2>
+    @Html.ValidationSummary()
+    <fieldset class="manage-wurfl">
+        <label for="UpdateFeedUrl">@T("Provide a rss feed link to be notified of Wurfl updates and have Orchard automatically update the Wurfl files.")</label>
+        @Html.TextBoxFor(m => m.UpdateFeedUrl, new { @class = "textMedium rss-icon" })
+        <span class="hint">@T("A wurfl rss feed service is provided by the WurflDistributor module.")</span>
+    </fieldset>
+    <fieldset>
+        <button class="primaryAction" type="submit">@T("Update")</button>
+    </fieldset>
+}
+
+<div class="manage-wurfl-sections">
+    <h2>@T("Wurfl File")</h2>
+    <div class="manage-wurfl edit-item-sidebar">
+        <dl>
+            <dt>@T("File Location")</dt>
+            <dd>[...]~.....</dd>
+        </dl>
+        <dl>
+            <dt>@T("File Status")</dt>
+            <dd>[...]~.....</dd>
+        </dl>
+        <dl>
+            <dt>@T("File Management")</dt>
+            <dd>@Html.ActionLink(T("Manual Wurfl Upload").ToString(), "UploadWurfl", new { }, new { @class = "button" })</dd>
+        </dl> 
+    </div>
+
+    <h2>@T("Patch Files")</h2>
+    <div class="manage-wurfl edit-item-sidebar">
+        <dl>
+            <dt>@T("Patch Location")</dt>
+            <dd>[...]~.....</dd>
+        </dl>
+        <dl>
+            <dt>@T("Patch Status")</dt>
+            <dd>[...]~.....</dd>
+        </dl>
+        <dl>
+            <dt>@T("Patch management")</dt>
+            <dd>@Html.ActionLink(T("Manage Patches").ToString(), "Index", "WurflPatchAdmin", new { }, new { @class = "button" })</dd>
+        </dl>
+    </div>
+
+    <h2>@T("Device Images")</h2>
+    <div class="manage-wurfl edit-item-sidebar">
+        <dl>
+            <dt>@T("Folder Location")</dt>
+            <dd>[...]~.....</dd>
+        </dl>
+        <dl>
+            <dt>@T("Images Status")</dt>
+            <dd>[...]~.....</dd>
+        </dl>  
+        <dl>
+            <dt>@T("Images Management")</dt>
+            <dd>@Html.ActionLink(T("Manual Images Upload").ToString(), "UploadImages", new { }, new { @class = "button" })</dd>
+        </dl> 
+    </div>
+</div>
+
+@using (Script.Foot())
+{
+<script type="text/javascript">
+//<![CDATA[
+    (function ($) {
+        $(".manage-wurfl-sections h2").expandoControl(function (controller) { return controller.next(".manage-wurfl"); }, { collapse: false, remember: false });
+    })(jQuery);
+//]]>
+</script>
+}

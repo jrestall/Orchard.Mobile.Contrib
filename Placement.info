@@ -1,0 +1,7 @@
+﻿<Placement>
+  <Place Parts_DeviceGroup_Edit="Content:1"/>
+  <Place Parts_DocTypeAdaptation_Edit="Content:5"/>
+  <Place Parts_WebAppAdaptation_Edit="Content:7"/>
+  <Place Parts_ThemeSwitcherAdaptation_Edit="Content:9"/>
+  <Place DeviceGroup_DeleteButton="Sidebar:25"/>
+</Placement>

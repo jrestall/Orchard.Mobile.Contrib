@@ -1,0 +1,130 @@
+@model Orchard.Mobile.Contrib.ViewModels.ThemesListViewModel
+@using Orchard.Mobile.Contrib.Extensions
+@using Orchard.Mvc.Extensions;
+@using DeviceGroupPart = Orchard.Mobile.Contrib.Models.DeviceGroupPart
+@{
+    Style.Require("ModulesAdmin");
+    Style.Require("MobileContribAdmin");
+    Style.Require("Switchable");
+    Style.Require("jQueryUI_Orchard");
+    Script.Require("Switchable");
+    Script.Require("jQueryUI_Sortable");
+    
+    Layout.Title = T("Mobile Theming").ToString();
+}
+@functions{
+    public bool isOneOrLessGroups()
+    {
+        return Model.DeviceGroups.Count() <= 1;
+    }
+
+    public bool showIncreasePriority(DeviceGroupPart group)
+    {
+        if (isOneOrLessGroups()) return false;
+        return Model.DeviceGroups.OrderBy(m => m.Position).First().Id != group.Id;
+    }
+
+    public bool showDecreasePriority(DeviceGroupPart group)
+    {
+        if (isOneOrLessGroups()) return false;
+        return Model.DeviceGroups.OrderBy(m => m.Position).Last().Id != group.Id;
+    }
+
+    public bool isDesktopTheme(string selector)
+    {
+        return selector.Contains("isMobileDevice(false)") || selector.Contains("isMobileDevice(\"false\")");
+    }
+}
+
+<div class="topLinks">
+    <p>@Html.ActionLink(T("User Agent Capabilities Search").ToString(), "UserAgentSearch", "WurflAdmin")</p>
+</div>
+<div class="clearBoth"></div>
+
+<h2>@T("Device Groups")</h2>
+@using (Html.BeginFormAntiForgeryPost(Url.Action("List")))
+{
+    if (Model.DeviceGroups.Count() > 0)
+    { 
+        <div class="actions"><a class="add button primaryAction" href="@Url.DeviceGroupCreate()">@T("Create a group")</a></div>
+ 
+        <ul id="device-groups" class="contentItems">
+        @foreach (var group in Model.DeviceGroups.OrderBy(m => m.Position))
+        {  
+            <li>
+                <div class="prioritySelectors">
+                    @if(showIncreasePriority(group)){
+                        <a class="arrow up" href="@Url.IncreaseGroupsPosition(group.Id)">@T("Up")</a> 
+                    }else{
+                        <div class="arrow"></div>
+                    }
+                    <span>@group.Position</span>
+                    @if (showDecreasePriority(group)){
+                        <a class="arrow down" href="@Url.DecreaseGroupsPosition(group.Id)">@T("Down")</a> 
+                    }else{
+                        <div class="arrow"></div>
+                    }
+                </div>
+                @{
+                    string iconUrl = group.IconPath;
+                    if (string.IsNullOrWhiteSpace(iconUrl))
+                    {
+                        iconUrl = Href("../../Content/Admin/images/deviceGroupIcon.png");
+                    }
+                }
+                @*<div class="deviceGroupIcon">
+                    <img src="@iconUrl" class="thumbnail" alt="@group.SelectionRule" />
+                </div>*@
+                <div class="summary">
+                    <div class="properties">
+                        <h2>@group.Name</h2>
+                        <p>@group.Description</p>
+                        <p>@T("Group's Theme:") @group.Theme</p>
+                        <div class="related">
+                    </div>
+                    </div>
+                    <div class="related">
+                        @Html.Link(T("Edit").Text, Url.Action("Edit", new { id = group.Id })) @T(" | ")
+                        @if (group.Enabled)
+                        {
+                            @Html.Link(T("Disable").Text, Url.Action("Disable", new { id = group.Id }), new { itemprop = "UnsafeUrl" })
+                        }
+                        else
+                        {
+                            @Html.Link(T("Enable").Text, Url.Action("Enable", new { id = group.Id }), new { itemprop = "UnsafeUrl" })
+                        }
+                        @{
+                        var mobileCheckUrl = Url.AbsoluteAction("", "", new { Area = "", theme = group.Theme });
+                        }
+                        @if (!isDesktopTheme(group.SelectionRule))
+                        { 
+                            <div class="secondaryLinks"><a href="http://validator.w3.org/mobile/check?docAddr=@mobileCheckUrl&async=false">@T("mobileOK Check")</a></div>
+                        }
+                    </div>
+                </div>
+            </li>
+        }
+        </ul>
+
+    }
+    else
+    {
+        <div class="info message">@T("There are no device groups for you to see. Want to <a href=\"{0}\">add one</a>?", Url.DeviceGroupCreate())</div>
+    }
+}
+
+@using (Script.Foot())
+{
+<script type="text/javascript">
+//<![CDATA[
+    (function ($) {
+        $("#device-groups").sortable({
+            placeholder: "ui-state-highlight",
+            update: function () {
+                var order = $('#device-groups').sortable('serialize');
+            }
+        }); 
+    })(jQuery);
+//]]>
+</script>
+}

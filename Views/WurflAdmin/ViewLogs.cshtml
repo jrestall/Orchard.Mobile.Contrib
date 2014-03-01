@@ -1,0 +1,43 @@
+@model Orchard.Mobile.Contrib.ViewModels.UserAgentSearchViewModel
+
+<h1>@Html.TitleForPage(T("User Agent Capabilities Search").ToString())</h1>
+
+<div class="breadCrumbs">
+    <p>@Html.ActionLink(T("Wurfl Management").ToString(), "Index") &#62; @T("User Agent Capabilities Search")</p>
+</div>
+
+@using (Html.BeginFormAntiForgeryPost())
+{
+    Html.ValidationSummary(); 
+    <fieldset>
+        @Html.LabelFor(m => m.UserAgent, T("User Agent"))
+        @Html.TextAreaFor(m => m.UserAgent)
+        <span class="hint">@T("The browsers user agent to get the capabilities for. E.g. Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 ")</span>
+    </fieldset>
+    
+    <input class="button" name="@T("Search")" type="submit" value="Search" />
+}
+
+@if (Model.Capabilities != null && Model.Capabilities.Count > 0)
+{
+    <table class="items">
+        <thead>
+            <tr>
+                <th scope="col">@T("Capability Name")</th>
+                <th scope="col">@T("Value")</th>
+            </tr>
+        </thead>
+
+        @foreach (var c in Model.Capabilities)
+        {
+            <tr>
+                <td>
+                    @c.Name
+                </td>
+                <td>
+                   @c.Value
+                </td>
+            </tr>
+        }
+    </table>
+}

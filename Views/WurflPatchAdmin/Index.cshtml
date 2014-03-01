@@ -1,0 +1,45 @@
+@model Orchard.Mobile.Contrib.ViewModels.WurflPatchIndexViewModel
+           
+<h1>@Html.TitleForPage(T("Manage Wurfl Patches").ToString())</h1>
+@Html.ValidationSummary()
+
+<fieldset class="bulk-actions">
+    <label for="publishActions">@T("Actions:")</label>
+    <select id="Select1" name="publishActions">
+        <option value="1">@T("Remove")</option>
+    </select>
+    <button type="submit">@T("Apply")</button>
+</fieldset>
+
+<div class="manage">@Html.ActionLink(T("Add a folder").ToString(), "Create", new { }, new { @class = "button primaryAction" })</div>
+
+<fieldset>
+    <table class="items" summary="@T("This is a table of the media folders currently available for use in your application.")">
+        <colgroup>
+            <col id="Col1" />
+            <col id="Col2" />
+            <col id="Col3" />
+            <col id="Col4" />
+            <col id="Col5" />
+            <col id="Col6" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">&nbsp;&darr;@{/* todo: (heskew) something more appropriate for "this applies to the bulk actions */ }</th>
+                <th scope="col">@T("Name")</th>
+                <th scope="col">@T("Last Updated")</th>
+            </tr>
+        </thead>
+        @foreach (var patchFile in Model.PatchFiles) {
+        <tr>
+            <td><input type="checkbox" value="true" name="@T("Checkbox.{0}", patchFile.Name)"/></td>
+            @* todo: (heskew) this URL needs to be determined from current module location *@
+            <td>
+                <img src="@Href("~/Modules/Contrib.Mobile/Content/Admin/images/folder.gif")" height="16" width="16" class="mediaTypeIcon" alt="@T("Patch File")" />
+                @Html.ActionLink(patchFile.Name, "Edit", new { name = patchFile.Name })
+            </td>
+            <td>@patchFile.LastUpdated</td>
+        </tr>
+        }
+    </table>
+</fieldset>

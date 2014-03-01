@@ -1,0 +1,13 @@
+@model Orchard.Mobile.Contrib.Models.DeviceAdaptationRecord
+@using Contrib.Mobile.Extensions;
+
+<fieldset>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Name, T("Name"))
+    </div>
+    <div class="editor-field">
+        @Html.CheckBoxFor(model => model.Enabled)
+        @Html.ValidationMessageFor(model => model.Enabled)
+    </div>
+    @Html.HiddenFor(model => model.DeviceGroup.Id)
+</fieldset>

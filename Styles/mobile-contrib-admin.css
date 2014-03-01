@@ -1,0 +1,145 @@
+﻿#main hgroup h1
+{
+    margin: 0;
+}
+
+#main hgroup h2
+{
+    padding: 0;
+    margin: 0 0 0.5em 0;
+    font-size: 100%;
+}
+
+
+.rss-icon
+{
+    background:url("../Content/Admin/images/feed-icon-16x16.png") no-repeat scroll 3px center transparent;
+    padding-left:24px !important;
+}
+
+.topLinks
+{
+    float: right;
+    margin: -5em 0 0;
+}
+
+.manage-wurfl dl
+{
+    clear: left;
+    margin: 0.5em 2em;
+}
+
+.manage-wurfl dt
+{
+    float: left;
+    margin-right: 0.5em;
+    width: 11.171em;
+}
+
+.previewTheme
+{
+    width: 10em;
+    height: 14em;
+}
+
+.deviceGroups
+{
+    margin-top: 30px;
+}
+
+.switch-for-switchable {
+    margin: 0 17px -28px !important;
+}
+
+.filter-actions 
+{
+    display: inline;
+    float: right;
+    height: auto;
+    margin: 0 0 1.4em 0;
+    padding-top: 0;
+}
+
+textarea.description-field 
+{
+    min-height: 4em;
+}
+
+/* Device Adaptation */
+
+.adaptation-heading
+{
+    border-bottom: 1px solid #EAEAEA;
+    border-spacing: 0;
+    padding: 8px 12px;
+    background: none repeat scroll 0 0 #F5F5F5;
+    overflow: hidden;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.devicegroup-section
+{
+    border-bottom: thin solid #E4E5E6;
+    padding-bottom: 1em;
+}
+
+.adaptation-heading label
+{
+    font-weight: 700;
+    display: inline;
+}
+
+.adaptation-settings
+{
+    margin: 0 2em 2em;
+}
+
+.secondaryLinks
+{
+    margin-top: 2em;
+}
+.ui-state-highlight  
+{
+    height: 8em;
+}
+
+.deviceGroupIcon
+{
+    float: left;
+}
+
+#device-groups li
+{
+    position: relative;
+    padding-left: 30px;
+}
+
+#device-groups li .prioritySelectors
+{
+    position: absolute;
+    top: 2em;
+    left: 10px;
+}
+
+#device-groups li .prioritySelectors span
+{
+    padding-left: 4px;
+}
+
+#device-groups .arrow
+{
+    display: block;
+    height: 16px;
+    width: 16px;
+}
+
+#device-groups .up {
+	background: url("images/moveup.gif") no-repeat left top;
+	text-indent: -1000em;
+}
+
+#device-groups .down {
+	background: url("images/movedown.gif") no-repeat left top;
+	text-indent: -1000em;
+}

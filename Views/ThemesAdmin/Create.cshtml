@@ -1,0 +1,15 @@
+@{
+    Style.Require("MobileContribAdmin");
+}
+@{ Layout.Title = T("Create Device Group").ToString(); }
+
+<div class="breadCrumbs">
+    <p>@Html.ActionLink(T("Mobile Theming").ToString(), "List") &#62; @T("Create Device Group")  
+</div>
+
+@using (Html.BeginFormAntiForgeryPost()) {
+    @Html.ValidationSummary()
+    // Model is a Shape, calling Display() so that it is rendered using the most specific template for its Shape type
+    @Display(Model)
+} 
+    @*<input class="button" name="@T("Create")" type="submit" value="Create" />*@

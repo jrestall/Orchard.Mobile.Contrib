@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C4202285-408F-491F-8F6D-6680DE7CA740}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Orchard.Mobile.Contrib</RootNamespace>
+    <AssemblyName>Orchard.Mobile.Contrib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\bin\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="FiftyOne.Foundation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Foundation\FiftyOne.Foundation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\aspnetmvc\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Patches\web_browsers_patch.xml" />
+    <Content Include="Content\Admin\images\deviceGroupIcon.png" />
+    <Content Include="Content\Admin\images\feed-icon-16x16.png" />
+    <Content Include="Styles\images\movedown.gif" />
+    <Content Include="Styles\images\moveup.gif" />
+    <Content Include="Scripts\mobile-contrib-script.js" />
+    <Content Include="Styles\mobile-contrib-admin.css" />
+    <Content Include="Styles\images\menu.mobilecontrib.png" />
+    <Content Include="Styles\menu.mobile-contrib-admin.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Scripts\Web.config" />
+    <Content Include="Styles\Web.config" />
+    <Content Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Module.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\ThemeSwitcherController.cs" />
+    <Compile Include="Drivers\DeviceGroupDriver.cs" />
+    <Compile Include="Extensions\ThemeSwitcherExtensions.cs" />
+    <Compile Include="Extensions\UrlHelperExtensions.cs" />
+    <Compile Include="Handlers\DeviceGroupHandler.cs" />
+    <Compile Include="MobileAdaptations\BlogPostAdaptation.cs" />
+    <Compile Include="MobileAdaptations\BrowserWidthAdaptation.cs" />
+    <Compile Include="MobileAdaptations\TranscodingProxyAdaptation.cs" />
+    <Compile Include="MobileAdaptations\DocTypeAdaptation.cs" />
+    <Compile Include="MobileAdaptations\ImageResizingAdaptation.cs" />
+    <Compile Include="MobileAdaptations\MetaTagsAdaptation.cs" />
+    <Compile Include="AdminMenu.cs" />
+    <Compile Include="Controllers\AnalyticsAdminController.cs" />
+    <Compile Include="Controllers\ThemesAdminController.cs" />
+    <Compile Include="Controllers\WurflAdminController.cs" />
+    <Compile Include="Controllers\WurflPatchAdminController.cs" />
+    <Compile Include="MobileAdaptations\TableSupportAdaptation.cs" />
+    <Compile Include="MobileAdaptations\ThemeSwitchingAdaptation.cs" />
+    <Compile Include="MobileAdaptations\WebAppAdaptation.cs" />
+    <Compile Include="Models\DeviceGroup.cs" />
+    <Compile Include="Models\PatchFile.cs" />
+    <Compile Include="Models\WurflFile.cs" />
+    <Compile Include="ModuleInstaller.cs" />
+    <Compile Include="Permissions.cs" />
+    <Compile Include="ResourceManifest.cs" />
+    <Compile Include="RuleEngine\RuleManager.cs" />
+    <Compile Include="RuleEngine\BrowserCapabilitiesRuleProvider.cs" />
+    <Compile Include="Services\MobileOKThemeSelector.cs" />
+    <Compile Include="Services\DeviceThemeSelector.cs" />
+    <Compile Include="Services\IDeviceGroupRuleProvider.cs" />
+    <Compile Include="Services\IDeviceGroupService.cs" />
+    <Compile Include="Services\IRuleManager.cs" />
+    <Compile Include="Services\IWurflFolder.cs" />
+    <Compile Include="Services\IWurflService.cs" />
+    <Compile Include="Services\DeviceGroupService.cs" />
+    <Compile Include="Services\RuleContext.cs" />
+    <Compile Include="Services\WurflService.cs" />
+    <Compile Include="ViewModels\EditDeviceGroupViewModel.cs" />
+    <Compile Include="ViewModels\ThemesEditViewModel.cs" />
+    <Compile Include="ViewModels\ThemesIndexViewModel.cs" />
+    <Compile Include="ViewModels\ThemesListViewModel.cs" />
+    <Compile Include="ViewModels\UserAgentSearchViewModel.cs" />
+    <Compile Include="ViewModels\WurflIndexViewModel.cs" />
+    <Compile Include="ViewModels\WurflPatchIndexViewModel.cs" />
+    <Compile Include="Migrations.cs" />
+    <Compile Include="ViewModels\WurflViewLogsViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Data\wurfl.xml.gz" />
+    <Content Include="Views\WurflAdmin\Index.cshtml" />
+    <Content Include="Content\Web.config" />
+    <Content Include="Views\WurflAdmin\UploadWurfl.cshtml" />
+    <Content Include="Views\WurflPatchAdmin\Index.cshtml" />
+    <Content Include="Views\WurflAdmin\UploadImages.cshtml" />
+    <Content Include="Views\WurflPatchAdmin\Add.cshtml" />
+    <Content Include="Views\ThemesAdmin\List.cshtml" />
+    <Content Include="Views\ThemesAdmin\Edit.cshtml" />
+    <Content Include="Views\ThemesAdmin\Create.cshtml" />
+    <Content Include="Views\AnalyticsAdmin\Index.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Views\WurflAdmin\UserAgentSearch.cshtml" />
+    <Content Include="Views\WurflAdmin\ViewLogs.cshtml" />
+    <None Include="Placement.info">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\EditorTemplates\Parts\DeviceGroup.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\DeviceAdaptation.cshtml" />
+    <Content Include="Views\DeviceGroup.DeleteButton.cshtml" />
+    <Content Include="Views\ThemeSwitcher.Links.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\WurflSettings\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">
+      <Project>{2d1d92bb-4555-4cbe-8d0e-63563d6ce4c6}</Project>
+      <Name>Orchard.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Orchard.Core.csproj">
+      <Project>{9916839c-39fc-4ceb-a5af-89ca7e87119f}</Project>
+      <Name>Orchard.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Scripting\Orchard.Scripting.csproj">
+      <Project>{99002b65-86f7-415e-bf4a-381aa8ab9ccc}</Project>
+      <Name>Orchard.Scripting</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" DependsOnTargets="AfterBuildCompiler">
+    <PropertyGroup>
+      <AreasManifestDir>$(ProjectDir)\..\Manifests</AreasManifestDir>
+    </PropertyGroup>
+    <!-- If this is an area child project, uncomment the following line:
+    <CreateAreaManifest AreaName="$(AssemblyName)" AreaType="Child" AreaPath="$(ProjectDir)" ManifestPath="$(AreasManifestDir)" ContentFiles="@(Content)" />
+    -->
+    <!-- If this is an area parent project, uncomment the following lines:
+    <CreateAreaManifest AreaName="$(AssemblyName)" AreaType="Parent" AreaPath="$(ProjectDir)" ManifestPath="$(AreasManifestDir)" ContentFiles="@(Content)" />
+    <CopyAreaManifests ManifestPath="$(AreasManifestDir)" CrossCopy="false" RenameViews="true" />
+    -->
+  </Target>
+  <Target Name="AfterBuildCompiler" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)\..\$(ProjectName)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>45979</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://orchard.codeplex.com</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

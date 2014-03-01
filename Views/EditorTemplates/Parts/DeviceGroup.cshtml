@@ -1,0 +1,102 @@
+@model Orchard.Mobile.Contrib.ViewModels.EditDeviceGroupViewModel
+@using Orchard.Mobile.Contrib.Extensions;
+@{
+    Style.Include("jQuery");
+}
+
+<fieldset class="devicegroup-section">
+    <legend>@T("Device Group")</legend>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Name, T("Name"))
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Description, T("Description"))
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.Description, new { @class = "description-field" })
+        @Html.ValidationMessageFor(model => model.Description)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.SelectionRule, T("Device Selection Rule"))
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.SelectionRule)
+        <span class="hint">@T("For example to add all mobile devices into this group you would use 'isMobileDevice(true)'. Or to only target the Chrome desktop browser you could use 'isMobileDevice(false) && mobileDeviceManufacturer(\"chrome\")'.") @Html.ActionLink(T("Search for more user agent capabilities.").ToString(), "UserAgentSearch", "WurflAdmin")</span>
+        @Html.ValidationMessageFor(model => model.SelectionRule)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Theme, T("Group Theme"))
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.Theme, new SelectList(Model.Themes, Model.Theme))
+        @if (Model.Themes.Count() == 1)
+        {
+            <span class="hint">@T("To have more theme choices you should enable additional themes ")<a href="@Url.ManageThemes()">@T("here.")</a></span>
+        }
+        @Html.ValidationMessageFor(model => model.Theme)
+    </div>
+
+</fieldset>
+
+<fieldset>
+    <legend>@T("Theme Switcher Settings")</legend>
+</fieldset>
+
+<fieldset class="adaptation-heading">
+    @Html.CheckBoxFor(model => model.SwitcherEnabled)
+    @Html.LabelFor(model => model.SwitcherEnabled, T("Enable Theme Switcher"))
+    <span class="hint adaptation">@T("Create text and links that allow users to choose the device group they prefer.")</span>
+    @Html.ValidationMessageFor(model => model.SwitcherEnabled)
+</fieldset>
+<fieldset class="adaptation-settings">      
+  <div class="editor-label">
+    @Html.LabelFor(model => model.SwitcherText, T("Switcher Text"))
+  </div>
+  <div class="editor-field">
+    @Html.TextAreaFor(model => model.SwitcherText)
+    @Html.ValidationMessageFor(model => model.SwitcherText)
+    <span class="hint">@T("This is the text you want to appear to the user. To link to other groups the format is [{Description}|{Device Group Name}]. For example 'View [Mobile|Mobile Default Group] | [Desktop|Desktop Default Group]'.")</span>
+  </div> 
+  
+  <div class="editor-label">
+    @Html.LabelFor(model => model.SwitcherPosition, T("Position"))
+  </div>
+  <div class="editor-field">
+    @Html.TextBoxFor(model => model.SwitcherPosition)
+    @Html.ValidationMessageFor(model => model.SwitcherPosition)
+  </div>   
+  
+  <div class="editor-label">
+    @Html.LabelFor(model => model.SwitcherZone, T("Zone"))
+  </div>
+  <div class="editor-field">
+    @Html.TextBoxFor(model => model.SwitcherZone)
+    @Html.ValidationMessageFor(model => model.SwitcherZone)
+  </div>          
+</fieldset>
+
+@using (Script.Foot())
+{
+<script type="text/javascript">
+//<![CDATA[
+    (function ($) {
+        $(".adaptation-heading input[type='checkbox']:not(:checked)").parent().next('.adaptation-settings').hide();
+        $(".adaptation-heading input").click(function () {
+            if ($(this).is(":checked")) {
+                $(this).parent().next('.adaptation-settings').fadeIn("fast");
+            } else {
+                $(this).parent().next('.adaptation-settings').fadeOut("fast");
+            }
+        });
+    })(jQuery);
+//]]>
+</script>
+}
