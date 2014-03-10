@@ -2,19 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using Orchard;
 using Orchard.ContentManagement;
 using Orchard.Data;
 using Orchard.DisplayManagement;
 using Orchard.Localization;
 using Orchard.Logging;
-using Orchard.Mobile.Contrib.Models;
-using Orchard.Mobile.Contrib.Services;
-using Orchard.Mobile.Contrib.ViewModels;
+using Contrib.Mobile.Models;
+using Contrib.Mobile.Services;
+using Contrib.Mobile.ViewModels;
 using Orchard.Mvc;
 using Orchard.UI.Admin;
 using Orchard.UI.Notify;
 
-namespace Orchard.Mobile.Contrib.Controllers
+namespace Contrib.Mobile.Controllers
 {
     [Admin]
     public class ThemesAdminController : Controller, IUpdateModel

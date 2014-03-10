@@ -1,10 +1,11 @@
 using System;
 using System.Web.Routing;
+using Orchard;
 using Orchard.Localization;
 using Orchard.Themes;
 using Orchard.UI.Admin;
 
-namespace Orchard.Mobile.Contrib.Services
+namespace Contrib.Mobile.Services
 {
     public class DeviceThemeSelector : IThemeSelector
     {

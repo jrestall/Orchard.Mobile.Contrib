@@ -1,8 +1,9 @@
+using Orchard;
 using Orchard.DisplayManagement.Implementation;
 using Orchard.Mvc;
 using Orchard.UI.Resources;
 
-namespace Orchard.Mobile.Contrib.MobileAdaptations
+namespace Contrib.Mobile.MobileAdaptations
 {
     /// <summary>
     /// Measures to avoid transcoding proxies from doing any content reformatting

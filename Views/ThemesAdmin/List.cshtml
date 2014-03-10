@@ -1,7 +1,7 @@
-@model Orchard.Mobile.Contrib.ViewModels.ThemesListViewModel
-@using Orchard.Mobile.Contrib.Extensions
+@model Contrib.Mobile.ViewModels.ThemesListViewModel
+@using Contrib.Mobile.Extensions
 @using Orchard.Mvc.Extensions;
-@using DeviceGroupPart = Orchard.Mobile.Contrib.Models.DeviceGroupPart
+@using DeviceGroupPart = Contrib.Mobile.Models.DeviceGroupPart
 @{
     Style.Require("ModulesAdmin");
     Style.Require("MobileContribAdmin");
@@ -37,7 +37,7 @@
 }
 
 <div class="topLinks">
-    <p>@Html.ActionLink(T("User Agent Capabilities Search").ToString(), "UserAgentSearch", "WurflAdmin")</p>
+    <p>@Html.ActionLink(T("User Agent Capabilities Search").ToString(), "UserAgentSearch", "OpenDDRAdmin")</p>
 </div>
 <div class="clearBoth"></div>
 

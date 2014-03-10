@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Orchard.Environment.Extensions.Models;
 using Orchard.Security.Permissions;
 
-namespace Orchard.Mobile.Contrib
+namespace Contrib.Mobile
 {
     public class Permissions : IPermissionProvider
     {

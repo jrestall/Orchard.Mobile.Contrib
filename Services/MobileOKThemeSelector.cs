@@ -2,7 +2,7 @@ using System.Web.Routing;
 using Orchard.Mvc;
 using Orchard.Themes;
 
-namespace Orchard.Mobile.Contrib.Services
+namespace Contrib.Mobile.Services
 {
     public class MobileOkThemeSelector : IThemeSelector
     {

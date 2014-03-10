@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using Orchard;
 using Orchard.ContentManagement;
-using Orchard.Mobile.Contrib.Models;
+using Contrib.Mobile.Models;
 
-namespace Orchard.Mobile.Contrib.Services
+namespace Contrib.Mobile.Services
 {
     public interface IDeviceGroupService : IDependency
     {

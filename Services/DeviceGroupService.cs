@@ -1,15 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Orchard;
 using Orchard.Caching;
 using Orchard.ContentManagement;
 using Orchard.Environment.Descriptor.Models;
 using Orchard.Environment.Extensions;
 using Orchard.Environment.Extensions.Models;
 using Orchard.Localization;
-using Orchard.Mobile.Contrib.Models;
+using Contrib.Mobile.Models;
 using Orchard.UI.Notify;
+using Orchard.Widgets.Services;
 
-namespace Orchard.Mobile.Contrib.Services
+namespace Contrib.Mobile.Services
 {
     public class DeviceGroupService : IDeviceGroupService
     {

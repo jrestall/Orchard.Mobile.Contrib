@@ -1,0 +1,19 @@
+﻿@model IDictionary<string, string>
+
+<table class="items user-agent-results">
+    <thead>
+        <tr>
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var key in Model.Keys)
+        {
+            <tr>
+                <td>@key</td>
+                <td>@Model[key]</td>
+            </tr>
+        }
+    </tbody>
+</table>

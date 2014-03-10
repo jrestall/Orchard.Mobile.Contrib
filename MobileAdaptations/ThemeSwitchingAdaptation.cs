@@ -1,10 +1,11 @@
 using System.Web.Mvc;
+using Orchard;
 using Orchard.DisplayManagement;
-using Orchard.Mobile.Contrib.Services;
+using Contrib.Mobile.Services;
 using Orchard.Mvc.Filters;
 using Orchard.UI.Admin;
 
-namespace Orchard.Mobile.Contrib.MobileAdaptations
+namespace Contrib.Mobile.MobileAdaptations
 {
     public class ThemeSwitchingAdaptation : FilterProvider, IResultFilter
     {

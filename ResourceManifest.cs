@@ -1,6 +1,6 @@
 using Orchard.UI.Resources;
 
-namespace Orchard.Mobile.Contrib
+namespace Contrib.Mobile
 {
     public class ResourceManifest : IResourceManifestProvider
     {

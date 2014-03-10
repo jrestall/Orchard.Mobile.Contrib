@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Orchard.Environment.Extensions.Models;
-using Orchard.Mobile.Contrib.Models;
+using Contrib.Mobile.Models;
 
-namespace Orchard.Mobile.Contrib.ViewModels
+namespace Contrib.Mobile.ViewModels
 {
     public class ThemesIndexViewModel
     {

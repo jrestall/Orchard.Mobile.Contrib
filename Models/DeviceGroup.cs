@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Records;
 
-namespace Orchard.Mobile.Contrib.Models
+namespace Contrib.Mobile.Models
 {
     public class DeviceGroupRecord : ContentPartRecord
     {

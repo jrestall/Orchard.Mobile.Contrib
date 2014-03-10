@@ -2,9 +2,9 @@ using JetBrains.Annotations;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Handlers;
 using Orchard.Data;
-using Orchard.Mobile.Contrib.Models;
+using Contrib.Mobile.Models;
 
-namespace Orchard.Mobile.Contrib.Handlers
+namespace Contrib.Mobile.Handlers
 {
     [UsedImplicitly]
     public class DeviceGroupHandler : ContentHandler

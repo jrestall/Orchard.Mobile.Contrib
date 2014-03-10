@@ -1,7 +1,8 @@
 using System.Web.Mvc;
 using System.Web.Routing;
+using Orchard;
 
-namespace Orchard.Mobile.Contrib.Controllers
+namespace Contrib.Mobile.Controllers
 {
     public class ThemeSwitcherController : Controller
     {

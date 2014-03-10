@@ -1,8 +1,8 @@
-Name: Orchard.Mobile.Contrib
+Name: Contrib.Mobile
 AntiForgery: enabled
 Author: James Restall
 Version: 0.9.0
 OrchardVersion: 1.7.0
 Description: Features to create and manage mobile websites.
-Dependencies: Orchard.Scripting.Lightweight, Orchard.jQuery
+Dependencies: Orchard.Scripting.Lightweight, Orchard.jQuery, Orchard.Widgets
 Category: Mobile

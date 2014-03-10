@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Drivers;
 using Orchard.Localization;
-using Orchard.Mobile.Contrib.Models;
-using Orchard.Mobile.Contrib.Services;
-using Orchard.Mobile.Contrib.ViewModels;
+using Contrib.Mobile.Models;
+using Contrib.Mobile.Services;
+using Contrib.Mobile.ViewModels;
+using Orchard.Widgets.Services;
 
-namespace Orchard.Mobile.Contrib.Drivers
+namespace Contrib.Mobile.Drivers
 {
     public class DeviceGroupDriver : ContentPartDriver<DeviceGroupPart>
     {

@@ -10,9 +10,9 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Orchard.Mobile.Contrib</RootNamespace>
-    <AssemblyName>Orchard.Mobile.Contrib</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>Contrib.Mobile</RootNamespace>
+    <AssemblyName>Contrib.Mobile</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -48,14 +48,14 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac">
-      <HintPath>..\..\bin\Autofac.dll</HintPath>
-    </Reference>
-    <Reference Include="FiftyOne.Foundation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Autofac, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Foundation\FiftyOne.Foundation.dll</HintPath>
+      <HintPath>..\..\..\..\lib\autofac\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="OpenDDR.Service">
+      <HintPath>Lib\OpenDDR.Service.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.ComponentModel.DataAnnotations">
@@ -82,7 +82,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Patches\web_browsers_patch.xml" />
     <Content Include="Content\Admin\images\deviceGroupIcon.png" />
     <Content Include="Content\Admin\images\feed-icon-16x16.png" />
     <Content Include="Styles\images\movedown.gif" />
@@ -98,68 +97,39 @@
     <Content Include="Module.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autofac\Registrar.cs" />
     <Compile Include="Controllers\ThemeSwitcherController.cs" />
     <Compile Include="Drivers\DeviceGroupDriver.cs" />
     <Compile Include="Extensions\ThemeSwitcherExtensions.cs" />
     <Compile Include="Extensions\UrlHelperExtensions.cs" />
     <Compile Include="Handlers\DeviceGroupHandler.cs" />
-    <Compile Include="MobileAdaptations\BlogPostAdaptation.cs" />
-    <Compile Include="MobileAdaptations\BrowserWidthAdaptation.cs" />
     <Compile Include="MobileAdaptations\TranscodingProxyAdaptation.cs" />
-    <Compile Include="MobileAdaptations\DocTypeAdaptation.cs" />
-    <Compile Include="MobileAdaptations\ImageResizingAdaptation.cs" />
-    <Compile Include="MobileAdaptations\MetaTagsAdaptation.cs" />
     <Compile Include="AdminMenu.cs" />
-    <Compile Include="Controllers\AnalyticsAdminController.cs" />
     <Compile Include="Controllers\ThemesAdminController.cs" />
-    <Compile Include="Controllers\WurflAdminController.cs" />
-    <Compile Include="Controllers\WurflPatchAdminController.cs" />
-    <Compile Include="MobileAdaptations\TableSupportAdaptation.cs" />
+    <Compile Include="Controllers\OpenDDRAdminController.cs" />
     <Compile Include="MobileAdaptations\ThemeSwitchingAdaptation.cs" />
-    <Compile Include="MobileAdaptations\WebAppAdaptation.cs" />
     <Compile Include="Models\DeviceGroup.cs" />
-    <Compile Include="Models\PatchFile.cs" />
-    <Compile Include="Models\WurflFile.cs" />
-    <Compile Include="ModuleInstaller.cs" />
     <Compile Include="Permissions.cs" />
     <Compile Include="ResourceManifest.cs" />
-    <Compile Include="RuleEngine\RuleManager.cs" />
-    <Compile Include="RuleEngine\BrowserCapabilitiesRuleProvider.cs" />
+    <Compile Include="Providers\DeviceRuleProvider.cs" />
     <Compile Include="Services\MobileOKThemeSelector.cs" />
     <Compile Include="Services\DeviceThemeSelector.cs" />
-    <Compile Include="Services\IDeviceGroupRuleProvider.cs" />
     <Compile Include="Services\IDeviceGroupService.cs" />
-    <Compile Include="Services\IRuleManager.cs" />
-    <Compile Include="Services\IWurflFolder.cs" />
-    <Compile Include="Services\IWurflService.cs" />
     <Compile Include="Services\DeviceGroupService.cs" />
-    <Compile Include="Services\RuleContext.cs" />
-    <Compile Include="Services\WurflService.cs" />
     <Compile Include="ViewModels\EditDeviceGroupViewModel.cs" />
     <Compile Include="ViewModels\ThemesEditViewModel.cs" />
     <Compile Include="ViewModels\ThemesIndexViewModel.cs" />
     <Compile Include="ViewModels\ThemesListViewModel.cs" />
     <Compile Include="ViewModels\UserAgentSearchViewModel.cs" />
-    <Compile Include="ViewModels\WurflIndexViewModel.cs" />
-    <Compile Include="ViewModels\WurflPatchIndexViewModel.cs" />
     <Compile Include="Migrations.cs" />
-    <Compile Include="ViewModels\WurflViewLogsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Data\wurfl.xml.gz" />
-    <Content Include="Views\WurflAdmin\Index.cshtml" />
     <Content Include="Content\Web.config" />
-    <Content Include="Views\WurflAdmin\UploadWurfl.cshtml" />
-    <Content Include="Views\WurflPatchAdmin\Index.cshtml" />
-    <Content Include="Views\WurflAdmin\UploadImages.cshtml" />
-    <Content Include="Views\WurflPatchAdmin\Add.cshtml" />
     <Content Include="Views\ThemesAdmin\List.cshtml" />
     <Content Include="Views\ThemesAdmin\Edit.cshtml" />
     <Content Include="Views\ThemesAdmin\Create.cshtml" />
-    <Content Include="Views\AnalyticsAdmin\Index.cshtml" />
     <Content Include="Web.config" />
-    <Content Include="Views\WurflAdmin\UserAgentSearch.cshtml" />
-    <Content Include="Views\WurflAdmin\ViewLogs.cshtml" />
+    <Content Include="Views\OpenDDRAdmin\UserAgentSearch.cshtml" />
     <None Include="Placement.info">
       <SubType>Designer</SubType>
     </None>
@@ -167,10 +137,9 @@
     <Content Include="Views\EditorTemplates\Parts\DeviceAdaptation.cshtml" />
     <Content Include="Views\DeviceGroup.DeleteButton.cshtml" />
     <Content Include="Views\ThemeSwitcher.Links.cshtml" />
+    <Content Include="Views\OpenDDRAdmin\_Properties.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\WurflSettings\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">
       <Project>{2d1d92bb-4555-4cbe-8d0e-63563d6ce4c6}</Project>
@@ -183,6 +152,10 @@
     <ProjectReference Include="..\Orchard.Scripting\Orchard.Scripting.csproj">
       <Project>{99002b65-86f7-415e-bf4a-381aa8ab9ccc}</Project>
       <Name>Orchard.Scripting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Widgets\Orchard.Widgets.csproj">
+      <Project>{194d3ccc-1153-474d-8176-fde8d7d0d0bd}</Project>
+      <Name>Orchard.Widgets</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

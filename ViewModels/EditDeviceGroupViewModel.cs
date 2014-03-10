@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Orchard.Mobile.Contrib.ViewModels
+namespace Contrib.Mobile.ViewModels
 {
     public class EditDeviceGroupViewModel
     {

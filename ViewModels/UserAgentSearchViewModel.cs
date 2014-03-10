@@ -1,12 +1,13 @@
 using System.Collections.Generic;
+using OpenDDR.Service.Modes;
 
-namespace Orchard.Mobile.Contrib.ViewModels
+namespace Contrib.Mobile.ViewModels
 {
     public class UserAgentSearchViewModel
     {
         public UserAgentSearchOptions Options { get; set; }
 
-        public IList<DeviceCapability> Capabilities { get; set; }
+        public Device Device { get; set; }
     }
 
     public class UserAgentSearchOptions
@@ -14,12 +15,5 @@ namespace Orchard.Mobile.Contrib.ViewModels
         public string UserAgentText { get; set; }
 
         public string CapabilityFilter { get; set; }
-    }
-
-    public class DeviceCapability
-    {
-        public string Name { get; set; }
-
-        public string Value { get; set; }
     }
 }

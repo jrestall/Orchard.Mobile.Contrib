@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Orchard.Mobile.Contrib.Models;
+using Contrib.Mobile.Models;
 
-namespace Orchard.Mobile.Contrib.ViewModels
+namespace Contrib.Mobile.ViewModels
 {
     public class ThemesListViewModel
     {
