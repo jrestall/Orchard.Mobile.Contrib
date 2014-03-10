@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
+﻿using System.Threading.Tasks;
 using Autofac;
 using OpenDDR.Service.Services;
 
@@ -12,13 +8,13 @@ namespace Contrib.Mobile.Autofac
         protected override void Load(ContainerBuilder builder) {
             base.Load(builder);
 
-            //Register 
-            builder.Register(x => new OddrDeviceService())
+            //Initializing the OddrDeviceService will parse the xml files - This may take two-tree seconds.
+            var initializeOddrDeviceService = new Task<OddrDeviceService>(() => new OddrDeviceService());
+            initializeOddrDeviceService.Start();
+
+            builder.Register(x => initializeOddrDeviceService.Result)
                    .As<IOddrDeviceService>()
                    .SingleInstance();
-
-            //Starting to resolve the OddrService in a single task - so that the service is already initialized when it is requested.
-            //new Task(() => builder.Build().Resolve<IOddrDeviceService>()).Start();
         }
     }
 }
