@@ -130,9 +130,7 @@
     <Content Include="Views\ThemesAdmin\Create.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Views\OpenDDRAdmin\UserAgentSearch.cshtml" />
-    <None Include="Placement.info">
-      <SubType>Designer</SubType>
-    </None>
+    <Content Include="Placement.info" />
     <Content Include="Views\EditorTemplates\Parts\DeviceGroup.cshtml" />
     <Content Include="Views\EditorTemplates\Parts\DeviceAdaptation.cshtml" />
     <Content Include="Views\DeviceGroup.DeleteButton.cshtml" />
