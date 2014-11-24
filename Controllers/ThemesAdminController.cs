@@ -144,7 +144,7 @@ namespace Contrib.Mobile.Controllers
                 _deviceGroupService.DeleteGroup(id);
                 Services.Notifier.Information(T("Group was successfully deleted"));
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 //this.Error(exception, T("Removing group failed: {0}", exception.Message), Logger, Services.Notifier);
             }
